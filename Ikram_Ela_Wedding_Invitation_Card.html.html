@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Ikram & Ela</title>
+
+  <!-- Google Fonts: Cinzel Decorative, Cormorant Garamond, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: {
+              50: '#FFFEFA',
+              100: '#FAF6EE',
+              200: '#F4ECE0',
+            },
+            warmWhite: '#FFFFFF',
+            gold: {
+              light: '#F5E6C4',
+              DEFAULT: '#CBA258',
+              metallic: '#D4AF37',
+              dark: '#99732B',
+            },
+            blush: {
+              50: '#FDF7F5',
+              100: '#F9ECE7',
+              200: '#F2D9D2',
+            },
+            peach: '#FCF3EB',
+            sage: {
+              DEFAULT: '#7B8E77',
+              light: '#A3B49F',
+              dark: '#566652',
+            },
+            charcoal: {
+              DEFAULT: '#2F2B2A',
+              muted: '#5A5351',
+              faded: '#8D8583',
+            }
+          },
+          fontFamily: {
+            decorative: ['"Cinzel Decorative"', 'serif'],
+            serifTitle: ['"Cinzel"', 'serif'],
+            serifBody: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS for luxury borders, shimmer, and floral animations -->
+  <style>
+    /* Delicate background lattice pattern */
+    .bg-royal-pattern {
+      background-color: #FAF6EE;
+      background-image: 
+        radial-gradient(circle at center, rgba(203, 162, 88, 0.12) 0.8px, transparent 1px),
+        radial-gradient(circle at center, rgba(123, 142, 119, 0.08) 0.8px, #FAF6EE 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    /* Metallic linear gradients */
+    .gold-divider {
+      background: linear-gradient(90deg, transparent, #CBA258, #F5E6C4, #CBA258, transparent);
+      height: 1px;
+    }
+
+    .gold-border-gradient {
+      border-image: linear-gradient(135deg, #F5E6C4, #CBA258, #99732B, #F5E6C4) 1;
+    }
+
+    /* Luxury card styling & soft drop shadow */
+    .luxury-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(203, 162, 88, 0.32);
+      box-shadow: 0 20px 45px -15px rgba(203, 162, 88, 0.12), 0 4px 16px -2px rgba(47, 43, 42, 0.04);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .luxury-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 55px -12px rgba(203, 162, 88, 0.22);
+      border-color: rgba(203, 162, 88, 0.65);
+    }
+
+    /* Gentle floating animation for botanical wreaths */
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(1.5deg); }
+    }
+    .animate-float-slow {
+      animation: gentleFloat 7s ease-in-out infinite;
+    }
+
+    /* Shimmer effect for gold CTA */
+    @keyframes goldShimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .gold-shimmer-btn {
+      background: linear-gradient(90deg, #CBA258 0%, #F5E6C4 50%, #CBA258 100%);
+      background-size: 200% 100%;
+      animation: goldShimmer 5s infinite linear;
+    }
+
+    /* Circular countdown ring stroke */
+    .countdown-box {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(250, 246, 238, 0.7));
+      border: 1px solid rgba(203, 162, 88, 0.35);
+      box-shadow: inset 0 0 14px rgba(203, 162, 88, 0.08), 0 8px 24px rgba(184, 153, 102, 0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-royal-pattern text-charcoal font-sans antialiased selection:bg-gold-light selection:text-charcoal relative min-h-screen">
+
+  <!-- ================= FLOATING AMBIENT AUDIO & RSVP TOP CONTROLS ================= -->
+  <header class="fixed top-0 left-0 right-0 z-40 px-4 md:px-8 py-3 bg-ivory-50/80 backdrop-blur-md border-b border-gold/20 flex justify-between items-center transition-all">
+    <a href="#" class="font-serifTitle text-xs tracking-[0.3em] uppercase text-charcoal flex items-center gap-2">
+      <span class="text-gold">✦</span>
+      <span>I <span class="font-serifBody italic text-gold font-normal">&</span> E</span>
+      <span class="text-gold">✦</span>
+    </a>
+    
+    <div class="flex items-center gap-3">
+      <!-- Quick Nav Buttons -->
+      <a href="#countdown" class="hidden sm:inline-block text-[11px] uppercase tracking-widest text-charcoal-muted hover:text-gold transition">Countdown</a>
+      <a href="#events" class="hidden sm:inline-block text-[11px] uppercase tracking-widest text-charcoal-muted hover:text-gold transition">Events</a>
+      <a href="#venue" class="hidden sm:inline-block text-[11px] uppercase tracking-widest text-charcoal-muted hover:text-gold transition">Venue</a>
+      
+      <!-- RSVP Modal Trigger -->
+      <button onclick="toggleRSVPModal(true)" class="px-4 py-1.5 rounded-full border border-gold text-[11px] uppercase tracking-widest text-gold-dark hover:bg-gold hover:text-white transition shadow-sm font-medium">
+        RSVP
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= PAGE 1: HERO & INVITATION WELCOME ================= -->
+  <section class="min-h-screen flex flex-col justify-between items-center relative pt-24 pb-12 px-6 text-center border-b border-gold/20">
+    
+    <!-- Top Floral Mandala SVG -->
+    <div class="w-full max-w-md mx-auto flex items-center justify-center pt-2 select-none">
+      <svg class="w-64 h-16 text-gold fill-current opacity-80 animate-float-slow" viewBox="0 0 300 80">
+        <!-- Botanical Leaves & Royal Arch Motif -->
+        <path d="M150 15 C130 35, 90 35, 60 20 C90 40, 130 45, 150 70 C170 45, 210 40, 240 20 C210 35, 170 35, 150 15 Z" fill="#CBA258" opacity="0.6"/>
+        <path d="M150 10 C145 25, 135 30, 120 28 C135 35, 145 45, 150 55 C155 45, 165 35, 180 28 C165 30, 155 25, 150 10 Z" fill="#7B8E77" opacity="0.75"/>
+        <circle cx="150" cy="40" r="4.5" fill="#D4AF37" />
+        <circle cx="120" cy="28" r="2" fill="#CBA258" />
+        <circle cx="180" cy="28" r="2" fill="#CBA258" />
+        <circle cx="85" cy="25" r="1.5" fill="#7B8E77" />
+        <circle cx="215" cy="25" r="1.5" fill="#7B8E77" />
+      </svg>
+    </div>
+
+    <!-- Center Typography -->
+    <div class="max-w-3xl mx-auto my-auto py-8">
+      <p class="font-sans uppercase text-xs md:text-sm tracking-[0.38em] text-sage font-medium mb-6 animate-pulse">
+        Together With Their Families
+      </p>
+
+      <div class="relative py-2">
+        <h1 class="font-decorative text-4xl sm:text-6xl md:text-7xl font-normal tracking-wider text-charcoal leading-tight">
+          IKRAM <span class="font-serifBody italic font-light text-3xl sm:text-5xl md:text-6xl text-gold mx-2 md:mx-4">&amp;</span> ELA
+        </h1>
+      </div>
+
+      <div class="gold-divider w-44 mx-auto my-6"></div>
+
+      <p class="font-serifBody italic text-2xl sm:text-3xl md:text-4xl text-gold-dark font-light mb-8">
+        Invite You To Celebrate Their Wedding
+      </p>
+
+      <!-- Wedding Date Pill Badge -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 px-7 py-3 rounded-full border border-gold/40 bg-white/85 shadow-sm backdrop-blur-sm">
+        <span class="text-xs uppercase tracking-[0.25em] text-sage-dark font-medium">Friday</span>
+        <span class="text-gold text-xs">◆</span>
+        <span class="font-serifTitle text-sm sm:text-base tracking-[0.25em] text-charcoal font-semibold">23 OCTOBER 2026</span>
+        <span class="text-gold text-xs">◆</span>
+        <span class="text-xs uppercase tracking-[0.25em] text-sage-dark font-medium">Dhaka</span>
+      </div>
+
+      <p class="font-serifBody italic text-lg sm:text-2xl text-charcoal/75 mt-8 max-w-xl mx-auto leading-relaxed">
+        "Two souls, guided by grace and blessed by love, unite to begin a magnificent forever."
+      </p>
+    </div>
+
+    <!-- Scroll Down Prompt Indicator -->
+    <a href="#countdown" class="flex flex-col items-center gap-2 text-sage hover:text-gold transition duration-300 group pt-4">
+      <span class="text-[10px] uppercase tracking-[0.35em] font-medium">Discover Celebration</span>
+      <div class="w-8 h-8 rounded-full border border-gold/40 flex items-center justify-center group-hover:border-gold transition">
+        <svg class="w-4 h-4 animate-bounce text-gold transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+    </a>
+  </section>
+
+  <!-- ================= PAGE 2: MAIN CEREMONIAL DETAILS ================= -->
+  <main class="max-w-5xl mx-auto px-5 sm:px-8 py-20 space-y-28">
+
+    <!-- ================= SECTION 1: LIVE COUNTDOWN TIMER ================= -->
+    <section id="countdown" class="scroll-mt-24">
+      <div class="luxury-card rounded-3xl p-8 sm:p-12 text-center max-w-3xl mx-auto relative overflow-hidden">
+        
+        <!-- Subtle Floral background accent inside card -->
+        <div class="absolute -top-12 -right-12 w-40 h-40 bg-gold-light/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-blush-100/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <span class="text-gold text-xs uppercase tracking-[0.3em] font-medium block mb-2">The Auspicious Moment</span>
+          <h2 class="font-serifTitle text-2xl sm:text-3xl md:text-4xl text-charcoal mb-3">Counting Down To Forever</h2>
+          <p class="font-serifBody italic text-lg sm:text-xl text-charcoal-muted max-w-lg mx-auto mb-8">
+            "Counting every second until forever begins."
+          </p>
+
+          <div class="gold-divider w-24 mx-auto mb-10"></div>
+
+          <!-- Dynamic Countdown Boxes (Target: October 23, 2026, 19:00:00 GMT+6) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto" id="countdownContainer">
+            
+            <!-- Days -->
+            <div class="countdown-box rounded-2xl p-5 flex flex-col items-center justify-center transition-all">
+              <span id="daysVal" class="font-serifTitle text-3xl sm:text-5xl font-light text-gold-dark tracking-wider">--</span>
+              <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-charcoal-faded mt-2 font-medium">Days</span>
+            </div>
+
+            <!-- Hours -->
+            <div class="countdown-box rounded-2xl p-5 flex flex-col items-center justify-center transition-all">
+              <span id="hoursVal" class="font-serifTitle text-3xl sm:text-5xl font-light text-gold-dark tracking-wider">--</span>
+              <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-charcoal-faded mt-2 font-medium">Hours</span>
+            </div>
+
+            <!-- Minutes -->
+            <div class="countdown-box rounded-2xl p-5 flex flex-col items-center justify-center transition-all">
+              <span id="minutesVal" class="font-serifTitle text-3xl sm:text-5xl font-light text-gold-dark tracking-wider">--</span>
+              <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-charcoal-faded mt-2 font-medium">Minutes</span>
+            </div>
+
+            <!-- Seconds -->
+            <div class="countdown-box rounded-2xl p-5 flex flex-col items-center justify-center transition-all">
+              <span id="secondsVal" class="font-serifTitle text-3xl sm:text-5xl font-light text-gold-dark tracking-wider">--</span>
+              <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-charcoal-faded mt-2 font-medium">Seconds</span>
+            </div>
+
+          </div>
+
+          <!-- Calendar Reminders -->
+          <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <button onclick="addToGoogleCalendar()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold/40 bg-white/90 text-xs uppercase tracking-widest text-charcoal hover:border-gold hover:text-gold-dark transition shadow-sm">
+              <svg class="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+              <span>Add To Google Calendar</span>
+            </button>
+            <button onclick="downloadICSFile()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold/40 bg-white/90 text-xs uppercase tracking-widest text-charcoal hover:border-gold hover:text-gold-dark transition shadow-sm">
+              <svg class="w-3.5 h-3.5 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              <span>Download Apple / Outlook (.ics)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: THE COUPLE ================= -->
+    <section class="max-w-3xl mx-auto text-center relative scroll-mt-24" id="couple">
+      <div class="luxury-card rounded-3xl p-8 sm:p-14 relative">
+        <!-- Four corner Indian royal floral motifs -->
+        <span class="absolute top-4 left-4 text-gold/70 text-sm">✤</span>
+        <span class="absolute top-4 right-4 text-gold/70 text-sm">✤</span>
+        <span class="absolute bottom-4 left-4 text-gold/70 text-sm">✤</span>
+        <span class="absolute bottom-4 right-4 text-gold/70 text-sm">✤</span>
+
+        <p class="text-xs uppercase tracking-[0.35em] text-sage font-medium mb-3">Two Souls Joined In Faith &amp; Joy</p>
+        <h2 class="font-serifTitle text-3xl sm:text-4xl text-charcoal font-normal tracking-wide">The Bride &amp; Groom</h2>
+
+        <div class="gold-divider w-20 mx-auto my-6"></div>
+
+        <div class="my-6 space-y-4">
+          <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
+            <div class="space-y-1">
+              <span class="text-[11px] uppercase tracking-widest text-sage-dark block">The Bride</span>
+              <h3 class="font-serifTitle text-2xl sm:text-3xl text-charcoal">Sabira Hossain</h3>
+              <p class="font-serifBody italic text-gold-dark text-lg">(Ela)</p>
+            </div>
+
+            <div class="w-12 h-12 rounded-full border border-gold/50 flex items-center justify-center bg-ivory-100 my-2 md:my-0 shadow-inner">
+              <span class="font-serifBody italic text-2xl text-gold font-light">&amp;</span>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-[11px] uppercase tracking-widest text-sage-dark block">The Groom</span>
+              <h3 class="font-serifTitle text-2xl sm:text-3xl text-charcoal">Md. Ikramuzzaman</h3>
+              <p class="font-serifBody italic text-gold-dark text-lg">(Ikram)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gold-divider w-32 mx-auto my-6"></div>
+
+        <!-- Romantic Quote -->
+        <blockquote class="font-serifBody italic text-xl sm:text-2xl text-charcoal/80 leading-relaxed max-w-xl mx-auto">
+          "Two hearts, one beautiful journey, and a lifetime of memories waiting to be made."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: WEDDING EVENTS ================= -->
+    <section id="events" class="space-y-12 scroll-mt-24">
+      <div class="text-center space-y-2">
+        <span class="text-xs uppercase tracking-[0.3em] text-sage font-medium">Sacred Ceremonies</span>
+        <h2 class="font-serifTitle text-3xl sm:text-4xl md:text-5xl text-charcoal font-normal">Wedding Events</h2>
+        <div class="gold-divider w-20 mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        
+        <!-- EVENT 1: HALDI -->
+        <div class="luxury-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden border-[#F1E0B0]">
+          <!-- Haldi Golden Yellow Aura Accent -->
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-[#FFF8D6]/60 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div>
+            <!-- Header Tag -->
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FAF3D8] border border-[#ECD996] text-[#A67C1E] text-[11px] font-semibold tracking-widest uppercase mb-6">
+              <span>✦</span> Pre-Wedding Ritual
+            </div>
+
+            <h3 class="font-serifTitle text-3xl text-charcoal mb-2">Haldi Ceremony</h3>
+            <p class="font-serifBody italic text-base sm:text-lg text-charcoal-muted mb-6">
+              A shower of sunshine, turmeric blessings, and melodious laughter.
+            </p>
+            <div class="gold-divider w-16 mb-6"></div>
+
+            <!-- Details List -->
+            <div class="space-y-4 text-sm text-charcoal/85">
+              <div class="flex items-start gap-3">
+                <span class="text-gold font-serifBody text-xl leading-none">✦</span>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-faded block">Date &amp; Day</span>
+                  <span class="font-medium text-base text-charcoal">Wednesday, 21 October 2026</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-gold font-serifBody text-xl leading-none">✦</span>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-faded block">Time</span>
+                  <span class="font-medium text-base text-charcoal">8:00 PM Sharp</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-gold font-serifBody text-xl leading-none">✦</span>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-faded block">Venue</span>
+                  <span class="font-medium text-base text-charcoal">The King Kabab &amp; Convention Hall</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Haldi Dress Theme Box -->
+          <div class="mt-8 pt-6 border-t border-[#F1E3BD]">
+            <span class="text-[11px] font-semibold text-[#A67C1E] uppercase tracking-widest block mb-1">
+              Dress Theme
+            </span>
+            <p class="text-xs sm:text-sm text-charcoal/75 leading-relaxed">
+              Vibrant sunshine yellows, radiant haldi accents, and playful florals to celebrate this lively joyous night.
+            </p>
+          </div>
+        </div>
+
+        <!-- EVENT 2: WEDDING -->
+        <div class="luxury-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden border-gold/40">
+          <!-- Wedding Pastel/Blush Soft Glow -->
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-blush-100/50 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div>
+            <!-- Header Tag -->
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-peach/80 border border-gold/30 text-gold-dark text-[11px] font-semibold tracking-widest uppercase mb-6">
+              <span>✦</span> The Holy Union
+            </div>
+
+            <h3 class="font-serifTitle text-3xl text-charcoal mb-2">The Wedding</h3>
+            <p class="font-serifBody italic text-base sm:text-lg text-charcoal-muted mb-6">
+              Solemn vows, traditional blessings, and an exquisite celebratory banquet.
+            </p>
+            <div class="gold-divider w-16 mb-6"></div>
+
+            <!-- Details List -->
+            <div class="space-y-4 text-sm text-charcoal/85">
+              <div class="flex items-start gap-3">
+                <span class="text-gold font-serifBody text-xl leading-none">✦</span>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-faded block">Date &amp; Day</span>
+                  <span class="font-medium text-base text-charcoal">Friday, 23 October 2026</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-gold font-serifBody text-xl leading-none">✦</span>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-faded block">Time</span>
+                  <span class="font-medium text-base text-charcoal">7:00 PM Onwards</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-gold font-serifBody text-xl leading-none">✦</span>
+                <div>
+                  <span class="text-xs uppercase tracking-wider text-charcoal-faded block">Venue</span>
+                  <span class="font-medium text-base text-charcoal">The King Kabab &amp; Convention Hall</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wedding Dress Theme Box -->
+          <div class="mt-8 pt-6 border-t border-gold/25">
+            <span class="text-[11px] font-semibold text-gold-dark uppercase tracking-widest block mb-1">
+              Dress Theme
+            </span>
+            <p class="text-xs sm:text-sm text-charcoal/80 leading-relaxed">
+              Soft, Light &amp; Elegant Pastel, Peach, Pink &amp; Golden Tones.
+              <span class="block text-gold-dark font-medium italic mt-1">(Kindly Note: Please avoid wearing Red).</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: VERTICAL EVENT TIMELINE ================= -->
+    <section class="max-w-xl mx-auto py-4">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-[0.3em] text-sage font-medium">Step By Step</span>
+        <h2 class="font-serifTitle text-2xl sm:text-3xl text-charcoal mt-1">Celebration Timeline</h2>
+        <div class="gold-divider w-16 mx-auto my-3"></div>
+      </div>
+
+      <div class="relative border-l-2 border-gold/30 ml-6 md:ml-20 space-y-12 py-3">
+        
+        <!-- Milestone 1: Haldi -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <!-- Timeline Gold Dot Node -->
+          <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-ivory-50 border-2 border-gold flex items-center justify-center shadow-sm">
+            <div class="w-2 h-2 rounded-full bg-gold"></div>
+          </div>
+          <span class="text-[11px] uppercase tracking-widest text-gold-dark font-medium block">Wednesday, 21 October 2026 • 8:00 PM</span>
+          <h4 class="font-serifTitle text-xl text-charcoal mt-1">Haldi Ceremony</h4>
+          <p class="text-sm font-serifBody italic text-charcoal-muted mt-1">
+            An evening filled with aromatic turmeric paste, traditional music, laughter, and blessings.
+          </p>
+        </div>
+
+        <!-- Milestone 2: Wedding -->
+        <div class="relative pl-8 sm:pl-10 group">
+          <!-- Timeline Gold Dot Node -->
+          <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-ivory-50 border-2 border-gold flex items-center justify-center shadow-sm">
+            <div class="w-2 h-2 rounded-full bg-gold"></div>
+          </div>
+          <span class="text-[11px] uppercase tracking-widest text-gold-dark font-medium block">Friday, 23 October 2026 • 7:00 PM</span>
+          <h4 class="font-serifTitle text-xl text-charcoal mt-1">Wedding Ceremony &amp; Feast</h4>
+          <p class="text-sm font-serifBody italic text-charcoal-muted mt-1">
+            The grand entrance, formal nuptials, heartfelt prayers, and an opulent royal dinner.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: VENUE & LOCATION ================= -->
+    <section id="venue" class="luxury-card rounded-3xl p-8 sm:p-14 text-center max-w-3xl mx-auto relative scroll-mt-24">
+      <span class="text-gold text-xs uppercase tracking-[0.3em] font-medium block mb-2">The Destination</span>
+      <h2 class="font-serifTitle text-3xl sm:text-4xl text-charcoal mb-3">The King Kabab &amp; Convention Hall</h2>
+      
+      <div class="gold-divider w-24 mx-auto mb-6"></div>
+
+      <p class="text-sm sm:text-base text-charcoal/80 max-w-lg mx-auto leading-relaxed font-light mb-8">
+        House #05, Main Road, Block #G,<br>
+        Banasree, Rampura, Dhaka – 1219, Bangladesh
+      </p>
+
+      <!-- Action Buttons for Navigation -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <!-- Direct Google Maps Link -->
+        <a 
+          href="https://maps.google.com/?cid=16997023616398762501" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gold text-white font-medium text-xs uppercase tracking-widest hover:bg-gold-dark transition duration-300 shadow-md"
+        >
+          <span>Open in Google Maps</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+        </a>
+
+        <!-- Copy Address Button -->
+        <button 
+          id="copyBtn"
+          onclick="copyAddress()" 
+          class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-gold/50 bg-white/80 text-charcoal font-medium text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition duration-300 shadow-sm"
+        >
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
+          </svg>
+          <span id="copyBtnText">Copy Address</span>
+        </button>
+      </div>
+
+      <!-- Copied Feedback Banner -->
+      <p id="copyFeedback" class="text-xs text-sage-dark font-medium mt-3 hidden opacity-0 transition-opacity duration-300">
+        Address successfully copied to your clipboard!
+      </p>
+    </section>
+
+    <!-- ================= SECTION 6: CLOSING BLESSING & FOOTER ================= -->
+    <footer class="text-center py-12 space-y-6">
+      <div class="gold-divider w-32 mx-auto"></div>
+      <p class="font-serifBody italic text-2xl sm:text-3xl text-gold-dark max-w-lg mx-auto">
+        Your gracious presence and prayers are our greatest gift.
+      </p>
+      <div class="space-y-1">
+        <p class="text-xs uppercase tracking-[0.3em] text-charcoal/60 font-medium">With Sincere Regards</p>
+        <p class="font-serifTitle text-sm tracking-widest text-charcoal">The Hossain &amp; The Zaman Families</p>
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.25em] text-charcoal/30 pt-6">October 2026 • Dhaka, Bangladesh</p>
+    </footer>
+
+  </main>
+
+  <!-- ================= RSVP MODAL ================= -->
+  <div id="rsvpModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 p-4">
+    <div class="bg-ivory-50 border border-gold/40 rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+      <button onclick="toggleRSVPModal(false)" class="absolute top-5 right-5 text-charcoal/40 hover:text-charcoal transition text-lg">✕</button>
+      
+      <div class="text-center mb-6">
+        <span class="text-gold text-xs uppercase tracking-[0.25em]">Honor Us With Your Response</span>
+        <h3 class="font-serifTitle text-2xl text-charcoal mt-1">Wedding RSVP</h3>
+        <div class="gold-divider w-12 mx-auto my-3"></div>
+      </div>
+
+      <form id="rsvpForm" onsubmit="handleRSVPSubmit(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-charcoal-muted mb-1">Your Full Name</label>
+          <input type="text" required placeholder="Guest Name" class="w-full px-4 py-2.5 rounded-xl border border-gold/30 bg-white/90 text-sm focus:outline-none focus:border-gold text-charcoal">
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-charcoal-muted mb-1">Attending Events</label>
+          <div class="space-y-2 mt-1">
+            <label class="flex items-center gap-2 text-xs text-charcoal cursor-pointer">
+              <input type="checkbox" checked class="accent-[#CBA258]">
+              <span>Haldi Ceremony (Oct 21)</span>
+            </label>
+            <label class="flex items-center gap-2 text-xs text-charcoal cursor-pointer">
+              <input type="checkbox" checked class="accent-[#CBA258]">
+              <span>The Wedding (Oct 23)</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-charcoal-muted mb-1">Number of Guests</label>
+          <select class="w-full px-4 py-2.5 rounded-xl border border-gold/30 bg-white/90 text-sm focus:outline-none focus:border-gold text-charcoal">
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4+ Guests</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-charcoal-muted mb-1">Warm Message or Warm Wish</label>
+          <textarea rows="2" placeholder="Send your prayers to Ikram & Ela..." class="w-full px-4 py-2 rounded-xl border border-gold/30 bg-white/90 text-sm focus:outline-none focus:border-gold text-charcoal"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-gold text-white uppercase text-xs tracking-widest font-medium hover:bg-gold-dark transition shadow-md mt-2">
+          Confirm Blessing &amp; Attendance
+        </button>
+      </form>
+
+      <div id="rsvpSuccessMsg" class="hidden text-center py-6 space-y-2">
+        <p class="font-serifTitle text-xl text-charcoal">Thank You So Much!</p>
+        <p class="text-xs text-sage font-medium">Your response has been warmly noted. We cannot wait to celebrate with you!</p>
+        <button onclick="toggleRSVPModal(false)" class="mt-4 px-6 py-2 rounded-full border border-gold text-xs uppercase tracking-widest text-gold-dark hover:bg-gold hover:text-white transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Wedding Date: October 23, 2026, 19:00:00 GMT+0600 (Dhaka Time)
+    const weddingDate = new Date("2026-10-23T19:00:00+06:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const daysEl = document.getElementById("daysVal");
+      const hoursEl = document.getElementById("hoursVal");
+      const minutesEl = document.getElementById("minutesVal");
+      const secondsEl = document.getElementById("secondsVal");
+
+      if (distance < 0) {
+        document.getElementById("countdownContainer").innerHTML = `
+          <div class="col-span-2 sm:col-span-4 py-4 text-center">
+            <span class="font-serifTitle text-2xl text-gold-dark">The Celebrations Have Begun!</span>
+          </div>
+        `;
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Pad with leading zeros for luxury aesthetic
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Start live countdown ticker immediately
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Copy Address Handler
+    function copyAddress() {
+      const addressText = "The King Kabab & Convention Hall, House#05, Main Road, Block#G, Banasree, Rampura, Dhaka, 1219, Bangladesh";
+      
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = addressText;
+      tempTextArea.style.position = "fixed";
+      tempTextArea.style.opacity = "0";
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      
+      try {
+        document.execCommand("copy");
+        const feedback = document.getElementById("copyFeedback");
+        const btnText = document.getElementById("copyBtnText");
+        
+        btnText.textContent = "Copied!";
+        feedback.classList.remove("hidden");
+        setTimeout(() => feedback.classList.remove("opacity-0"), 10);
+        
+        setTimeout(() => {
+          btnText.textContent = "Copy Address";
+          feedback.classList.add("opacity-0");
+          setTimeout(() => feedback.classList.add("hidden"), 300);
+        }, 3000);
+      } catch (err) {
+        console.error("Unable to copy", err);
+      } finally {
+        document.body.removeChild(tempTextArea);
+      }
+    }
+
+    // Add to Google Calendar handler
+    function addToGoogleCalendar() {
+      const title = encodeURIComponent("Wedding Ceremony: Ikram & Ela");
+      const details = encodeURIComponent("Join us to celebrate the wedding of Md. Ikramuzzaman & Sabira Hossain (Ela) at The King Kabab & Convention Hall, Banasree, Dhaka. Dress theme: Soft, Light & Elegant Pastel, Peach, Pink & Golden Tones (Please avoid Red).");
+      const location = encodeURIComponent("The King Kabab & Convention Hall, House#05, Main Road, Block#G, Banasree, Rampura, Dhaka 1219");
+      // Format in UTC: 2026-10-23 19:00 BD (UTC+6) is 2026-10-23 13:00 UTC
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261023T130000Z/20261023T170000Z&details=${details}&location=${location}`;
+      window.open(gcalUrl, '_blank');
+    }
+
+    // Download .ICS calendar event file
+    function downloadICSFile() {
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Ikram & Ela Wedding//EN",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VEVENT",
+        "SUMMARY:Wedding Ceremony: Ikram & Ela",
+        "DESCRIPTION:The Wedding of Md. Ikramuzzaman & Sabira Hossain. Dress theme: Soft pastel & golden tones (Avoid red).",
+        "LOCATION:The King Kabab & Convention Hall, Banasree, Rampura, Dhaka, 1219",
+        "DTSTART:20261023T130000Z",
+        "DTEND:20261023T170000Z",
+        "STATUS:CONFIRMED",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute("download", "Ikram_and_Ela_Wedding.ics");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Modal Interaction
+    function toggleRSVPModal(show) {
+      const modal = document.getElementById("rsvpModal");
+      if (show) {
+        modal.classList.remove("hidden");
+        setTimeout(() => modal.classList.remove("opacity-0"), 10);
+      } else {
+        modal.classList.add("opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          // Reset form state on exit
+          document.getElementById("rsvpForm").classList.remove("hidden");
+          document.getElementById("rsvpSuccessMsg").classList.add("hidden");
+        }, 300);
+      }
+    }
+
+    function handleRSVPSubmit(e) {
+      e.preventDefault();
+      document.getElementById("rsvpForm").classList.add("hidden");
+      document.getElementById("rsvpSuccessMsg").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
